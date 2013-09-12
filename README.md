@@ -7,4 +7,5 @@ A simple automator workflow to import FLAC files to iTunes.
  2. $brew install flac
  3. Create a "FLAC to iTunes" folder
  4. Add this workflow as a folder action on your "FLAC to iTunes" folder.
- 5. Move FLAC files into that folder
+ 5. Change the flac_bin variable in the workflow to a folder containing the flac binaries. You can get this from "dirname `which flac`" on the command line
+ 6. Move FLAC files into that folder
