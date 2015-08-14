@@ -3,6 +3,8 @@ FLAC to iTunes
 
 A simple automator workflow to import FLAC files to iTunes.
 
+*Note: The flac2mp3 script was removed from the "flac" homebrew package, so these instructions are incomplete. I'll get an update out soon, but in the meantime, a workaround is to install the [flac2mp3 script](https://github.com/rmndk/flac2mp3) to a folder on your PATH.*
+
  1. Install [Homebrew](http://brew.sh/).
  2. From the command prompt, run `brew install flac`
  3. Create a "FLAC to iTunes" folder. I use ~/Music/FLAC to iTunes.
