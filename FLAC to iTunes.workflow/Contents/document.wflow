@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>346</string>
+	<string>409.2</string>
 	<key>AMApplicationVersion</key>
-	<string>2.3</string>
+	<string>2.5</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -59,24 +59,26 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string># Set the following to the folder containing metaflac, flac, flac2mp3 and lame binaries. 
-# Install flac from homebrew
-flac_bin = "/opt/boxen/homebrew/bin"
+					<string>
+# Before staring, read the installation instructions 
+# at https://github.com/christopher-b/flac-to-itunes
 
-# Change working folder so the files will be saved in the same folder
+# Find the folder containing metaflac, flac, flac2mp3 and lame binaries and 
+# add it to PATH
+ENV['PATH'] = ENV['PATH'] + ':' + File.dirname(`which flac`)
+
+# Change working directory so the MP3 files will be saved in the same folder
 export_folder = File.dirname(ARGV.first)
 Dir.chdir(export_folder)
 
-# Set path
-path = ENV['PATH']
-path = "#{path}:#{flac_bin}"
-ENV['PATH'] = path
+# Convert FLAC files to MP3 files
 ARGV.each do |file|
-	next if File.extname(file) != '.flac'
-	`flac2mp3 "#{file}"`
-	puts export_folder + "/" + File.basename(file,'.*')+".mp3"
-	File.delete file
-end</string>
+  next unless File.extname(file) == '.flac'
+  `flac2mp3 "#{file}"`
+  puts export_folder + "/" + File.basename(file,'.*')+".mp3"
+  File.delete file
+end
+</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -191,7 +193,7 @@ end</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>769.500000:782.000000</string>
+				<string>414.000000:495.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -339,9 +341,9 @@ end</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>769.500000:599.000000</string>
+				<string>414.000000:597.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Import Audio Files.action/Contents/Resources/English.lproj/main.nib</string>
+				<string>/System/Library/Automator/Import Audio Files.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -349,7 +351,7 @@ end</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>EA84CF4F-CF7E-4789-8AB1-0950C4EFC3EE</key>
+		<key>E448FB1E-84C2-4E6E-BD1B-4AAAFAE6E9DC</key>
 		<dict>
 			<key>from</key>
 			<string>25830854-C1C8-4A55-A0CB-FCB6241D6F3D - 25830854-C1C8-4A55-A0CB-FCB6241D6F3D</string>
